@@ -1,0 +1,30 @@
+<mat-tree [dataSource]="$any(source)" [treeControl]="tree">
+  <!-- leaf template -->
+  <mat-tree-node *matTreeNodeDef="let node" matTreeNodePadding>
+    <!-- disabled button to provide padding -->
+    <button mat-icon-button disabled></button>
+    {{ node.name }}
+  </mat-tree-node>
+
+  <!-- parent template -->
+  <mat-tree-node
+    *matTreeNodeDef="let node; when: isExpandable"
+    matTreeNodePadding
+  >
+    <button
+      mat-icon-button
+      matTreeNodeToggle
+      [attr.aria-label]="'Toggle ' + node.name"
+    >
+      <mat-icon class="mat-icon-rtl-mirror">
+        {{ tree.isExpanded(node) ? "expand_more" : "chevron_right" }}
+      </mat-icon>
+    </button>
+    {{ node.name }}
+    <mat-progress-bar
+      *ngIf="node.isLoading"
+      mode="indeterminate"
+      class="tree-progress-bar"
+    ></mat-progress-bar>
+  </mat-tree-node>
+</mat-tree>

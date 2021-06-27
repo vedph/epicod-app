@@ -22,14 +22,19 @@
             "main": "src/main.ts",
             "polyfills": "src/polyfills.ts",
             "tsConfig": "tsconfig.app.json",
-            "assets": [
-              "src/favicon.ico",
-              "src/assets"
-            ],
+            "assets": ["src/favicon.ico", "src/assets", "src/env.js"],
             "styles": [
+              "./node_modules/@angular/material/prebuilt-themes/indigo-pink.css",
               "src/styles.css"
             ],
-            "scripts": []
+            "scripts": [],
+            "sourceMap": {
+              "scripts": true,
+              "styles": true,
+              "hidden": false,
+              "vendor": true
+            },
+            "preserveSymlinks": true
           },
           "configurations": {
             "production": {
@@ -37,7 +42,7 @@
                 {
                   "type": "initial",
                   "maximumWarning": "500kb",
-                  "maximumError": "1mb"
+                  "maximumError": "3mb"
                 },
                 {
                   "type": "anyComponentStyle",
@@ -89,14 +94,105 @@
             "polyfills": "src/polyfills.ts",
             "tsConfig": "tsconfig.spec.json",
             "karmaConfig": "karma.conf.js",
-            "assets": [
-              "src/favicon.ico",
-              "src/assets"
-            ],
+            "assets": ["src/favicon.ico", "src/assets"],
             "styles": [
+              "./node_modules/@angular/material/prebuilt-themes/indigo-pink.css",
               "src/styles.css"
             ],
             "scripts": []
+          }
+        }
+      }
+    },
+    "@myrmidon/epicod-api": {
+      "projectType": "library",
+      "root": "projects/myrmidon/epicod-api",
+      "sourceRoot": "projects/myrmidon/epicod-api/src",
+      "prefix": "epicod",
+      "architect": {
+        "build": {
+          "builder": "@angular-devkit/build-angular:ng-packagr",
+          "options": {
+            "project": "projects/myrmidon/epicod-api/ng-package.json"
+          },
+          "configurations": {
+            "production": {
+              "tsConfig": "projects/myrmidon/epicod-api/tsconfig.lib.prod.json"
+            },
+            "development": {
+              "tsConfig": "projects/myrmidon/epicod-api/tsconfig.lib.json"
+            }
+          },
+          "defaultConfiguration": "production"
+        },
+        "test": {
+          "builder": "@angular-devkit/build-angular:karma",
+          "options": {
+            "main": "projects/myrmidon/epicod-api/src/test.ts",
+            "tsConfig": "projects/myrmidon/epicod-api/tsconfig.spec.json",
+            "karmaConfig": "projects/myrmidon/epicod-api/karma.conf.js"
+          }
+        }
+      }
+    },
+    "@myrmidon/epicod-core": {
+      "projectType": "library",
+      "root": "projects/myrmidon/epicod-core",
+      "sourceRoot": "projects/myrmidon/epicod-core/src",
+      "prefix": "epicod",
+      "architect": {
+        "build": {
+          "builder": "@angular-devkit/build-angular:ng-packagr",
+          "options": {
+            "project": "projects/myrmidon/epicod-core/ng-package.json"
+          },
+          "configurations": {
+            "production": {
+              "tsConfig": "projects/myrmidon/epicod-core/tsconfig.lib.prod.json"
+            },
+            "development": {
+              "tsConfig": "projects/myrmidon/epicod-core/tsconfig.lib.json"
+            }
+          },
+          "defaultConfiguration": "production"
+        },
+        "test": {
+          "builder": "@angular-devkit/build-angular:karma",
+          "options": {
+            "main": "projects/myrmidon/epicod-core/src/test.ts",
+            "tsConfig": "projects/myrmidon/epicod-core/tsconfig.spec.json",
+            "karmaConfig": "projects/myrmidon/epicod-core/karma.conf.js"
+          }
+        }
+      }
+    },
+    "@myrmidon/epicod-tree": {
+      "projectType": "library",
+      "root": "projects/myrmidon/epicod-tree",
+      "sourceRoot": "projects/myrmidon/epicod-tree/src",
+      "prefix": "epicod",
+      "architect": {
+        "build": {
+          "builder": "@angular-devkit/build-angular:ng-packagr",
+          "options": {
+            "project": "projects/myrmidon/epicod-tree/ng-package.json"
+          },
+          "configurations": {
+            "production": {
+              "tsConfig": "projects/myrmidon/epicod-tree/tsconfig.lib.prod.json"
+            },
+            "development": {
+              "tsConfig": "projects/myrmidon/epicod-tree/tsconfig.lib.json"
+            }
+          },
+          "defaultConfiguration": "production"
+        },
+        "test": {
+          "builder": "@angular-devkit/build-angular:karma",
+          "options": {
+            "main": "projects/myrmidon/epicod-tree/src/test.ts",
+            "tsConfig": "projects/myrmidon/epicod-tree/tsconfig.spec.json",
+            "karmaConfig": "projects/myrmidon/epicod-tree/karma.conf.js"
           }
         }
       }

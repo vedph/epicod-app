@@ -2,6 +2,24 @@
 {
   "compileOnSave": false,
   "compilerOptions": {
+    "paths": {
+      "@myrmidon/epicod-api": [
+        "dist/myrmidon/epicod-api/myrmidon-epicod-api",
+        "dist/myrmidon/epicod-api"
+      ],
+      "@myrmidon/epicod-core": [
+        "dist/myrmidon/epicod-core/myrmidon-epicod-core",
+        "dist/myrmidon/epicod-core"
+      ],
+      "@myrmidon/epicod-text-node-tree": [
+        "dist/myrmidon/epicod-text-node-tree/myrmidon-epicod-text-node-tree",
+        "dist/myrmidon/epicod-text-node-tree"
+      ],
+      "@myrmidon/epicod-tree": [
+        "dist/myrmidon/epicod-tree/myrmidon-epicod-tree",
+        "dist/myrmidon/epicod-tree"
+      ]
+    },
     "baseUrl": "./",
     "outDir": "./dist/out-tsc",
     "forceConsistentCasingInFileNames": true,
