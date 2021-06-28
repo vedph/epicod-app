@@ -1,4 +1,5 @@
 import { FlatTreeControl } from '@angular/cdk/tree';
+import { EventEmitter, Output } from '@angular/core';
 import { Component } from '@angular/core';
 
 import { EpicodApiService } from '@myrmidon/epicod-api';
@@ -17,6 +18,9 @@ export class EpicodTreeComponent {
   public pageSize: number;
   public tree: FlatTreeControl<NodeViewModel>;
 
+  @Output()
+  public nodePick: EventEmitter<NodeViewModel>;
+
   // public getLevel = (node: NodeViewModel): number => {
   //   return node.level;
   // };
@@ -27,6 +31,7 @@ export class EpicodTreeComponent {
   };
 
   constructor(apiService: EpicodApiService) {
+    this.nodePick = new EventEmitter<NodeViewModel>();
     this.tree = new FlatTreeControl<NodeViewModel>(
       (n: NodeViewModel) => n.level,
       (n: NodeViewModel) => (n.isExpandable ? true : false)
@@ -36,5 +41,9 @@ export class EpicodTreeComponent {
     // );
     this.source = new EpicodTreeDataSource(apiService, this.tree);
     this.pageSize = 20;
+  }
+
+  public pickNode(node: NodeViewModel): void {
+    this.nodePick.emit(node);
   }
 }

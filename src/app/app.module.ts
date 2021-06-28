@@ -31,6 +31,7 @@ import {
 } from 'projects/myrmidon/epicod-core/src/public-api';
 import { EpicodApiModule } from 'projects/myrmidon/epicod-api/src/public-api';
 import { EpicodTreeModule } from 'projects/myrmidon/epicod-tree/src/public-api';
+import { EpicodTextModule } from 'projects/myrmidon/epicod-text/src/public-api';
 
 @NgModule({
   declarations: [AppComponent, HomeComponent],
@@ -61,6 +62,7 @@ import { EpicodTreeModule } from 'projects/myrmidon/epicod-tree/src/public-api';
     EpicodCoreModule,
     EpicodApiModule,
     EpicodTreeModule,
+    EpicodTextModule
   ],
   providers: [EnvServiceProvider],
   bootstrap: [AppComponent],

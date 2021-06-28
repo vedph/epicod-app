@@ -11,6 +11,10 @@
         "dist/myrmidon/epicod-core/myrmidon-epicod-core",
         "dist/myrmidon/epicod-core"
       ],
+      "@myrmidon/epicod-text": [
+        "dist/myrmidon/epicod-text/myrmidon-epicod-text",
+        "dist/myrmidon/epicod-text"
+      ],
       "@myrmidon/epicod-text-node-tree": [
         "dist/myrmidon/epicod-text-node-tree/myrmidon-epicod-text-node-tree",
         "dist/myrmidon/epicod-text-node-tree"
