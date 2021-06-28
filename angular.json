@@ -227,6 +227,37 @@
           }
         }
       }
+    },
+    "@myrmidon/epicod-browser": {
+      "projectType": "library",
+      "root": "projects/myrmidon/epicod-browser",
+      "sourceRoot": "projects/myrmidon/epicod-browser/src",
+      "prefix": "epicod",
+      "architect": {
+        "build": {
+          "builder": "@angular-devkit/build-angular:ng-packagr",
+          "options": {
+            "project": "projects/myrmidon/epicod-browser/ng-package.json"
+          },
+          "configurations": {
+            "production": {
+              "tsConfig": "projects/myrmidon/epicod-browser/tsconfig.lib.prod.json"
+            },
+            "development": {
+              "tsConfig": "projects/myrmidon/epicod-browser/tsconfig.lib.json"
+            }
+          },
+          "defaultConfiguration": "production"
+        },
+        "test": {
+          "builder": "@angular-devkit/build-angular:karma",
+          "options": {
+            "main": "projects/myrmidon/epicod-browser/src/test.ts",
+            "tsConfig": "projects/myrmidon/epicod-browser/tsconfig.spec.json",
+            "karmaConfig": "projects/myrmidon/epicod-browser/karma.conf.js"
+          }
+        }
+      }
     }
   },
   "defaultProject": "epicod-app"

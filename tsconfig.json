@@ -7,6 +7,10 @@
         "dist/myrmidon/epicod-api/myrmidon-epicod-api",
         "dist/myrmidon/epicod-api"
       ],
+      "@myrmidon/epicod-browser": [
+        "dist/myrmidon/epicod-browser/myrmidon-epicod-browser",
+        "dist/myrmidon/epicod-browser"
+      ],
       "@myrmidon/epicod-core": [
         "dist/myrmidon/epicod-core/myrmidon-epicod-core",
         "dist/myrmidon/epicod-core"

@@ -9,7 +9,7 @@
     "test": "ng test",
     "build-core": "ng build @myrmidon/epicod-core --configuration=production",
     "build-api": "ng build @myrmidon/epicod-api --configuration=production",
-    "build-ui": "ng build @myrmidon/epicod-tree --configuration=production && ng build @myrmidon/epicod-text --configuration=production",
+    "build-ui": "ng build @myrmidon/epicod-tree --configuration=production && ng build @myrmidon/epicod-text --configuration=production && ng build @myrmidon/epicod-browser --configuration=production",
     "build-all": "npm run build-core && npm run build-api && npm run build-ui"
   },
   "private": true,

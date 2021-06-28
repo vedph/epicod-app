@@ -1,17 +1,1 @@
-<mat-card>
-  <mat-card-header>
-    <mat-card-title>
-      <h2>EpiCod</h2>
-    </mat-card-title>
-  </mat-card-header>
-  <mat-card-content
-    gdAreas="tree text"
-    gdAreas.lt-md="tree | text"
-    gdColumns="1fr 1fr"
-    gdColumns.lt-md="1fr"
-    gdGap="8px"
-  >
-    <epicod-tree (nodePick)="onNodePick($event)"></epicod-tree>
-    <epicod-text [node]="node"></epicod-text>
-  </mat-card-content>
-</mat-card>
+<epicod-browser></epicod-browser>

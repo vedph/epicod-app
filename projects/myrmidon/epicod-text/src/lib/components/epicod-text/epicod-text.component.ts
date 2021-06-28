@@ -26,17 +26,32 @@ export class EpicodTextComponent implements OnInit {
     this.update();
   }
 
+  public region: string | undefined;
+  public location: string | undefined;
+  public type: string | undefined;
+  public layout: string | undefined;
+  public date: string | undefined;
+  public references: string[] | undefined;
+
   constructor() {}
 
   ngOnInit(): void {}
 
-  private update(): void {
-    this.lines = [];
+  private getPropValue(name: string): string | undefined {
+    return this._node?.properties?.find(p => p.name === name)?.value;
+  }
 
+  private getPropValues(name: string): string[] | undefined {
+    // TODO
+    return [];
+  }
+
+  private updateText(): void {
     if (!this._node) {
+      this.lines = [];
       return;
     }
-    const text = this._node.properties?.find((p) => p.name === 'text')?.value;
+    const text = this.getPropValue('text');
     if (!text) {
       return;
     }
@@ -56,5 +71,13 @@ export class EpicodTextComponent implements OnInit {
         text: text,
       });
     });
+    this.lines = lines;
+  }
+
+  private update(): void {
+    this.updateText();
+    this.region = this.getPropValue('region');
+    this.location = this.getPropValue('location');
+    // TODO
   }
 }

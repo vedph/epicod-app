@@ -6,6 +6,11 @@
     <button type="button" mat-button (click)="pickNode(node)">
       {{ node.name }}
     </button>
+    <mat-progress-bar
+      *ngIf="node.loading"
+      mode="indeterminate"
+      class="tree-progress-bar"
+    ></mat-progress-bar>
   </mat-tree-node>
 
   <!-- parent template -->

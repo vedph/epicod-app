@@ -1,9 +1,20 @@
-<h2>{{node?.name}}</h2>
-<table *ngIf="lines">
-  <tbody>
-    <tr *ngFor="let l of lines">
-      <td>{{l.label}}</td>
-      <td>{{l.text}}</td>
-    </tr>
-  </tbody>
-</table>
+<div *ngIf="node">
+  <h2>{{ node.name }}</h2>
+  <fieldset>
+    <legend>metadata</legend>
+    <p>
+      <span>{{ region }}</span> - <span>{{ location }}</span>
+    </p>
+    <p>
+      <span>{{ date }}</span>
+    </p>
+  </fieldset>
+  <table *ngIf="lines">
+    <tbody>
+      <tr *ngFor="let l of lines">
+        <td>{{ l.label }}</td>
+        <td>{{ l.text }}</td>
+      </tr>
+    </tbody>
+  </table>
+</div>

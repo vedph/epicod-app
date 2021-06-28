@@ -1,0 +1,12 @@
+{
+  "$schema": "../../../node_modules/ng-packagr/ng-package.schema.json",
+  "dest": "../../../dist/myrmidon/epicod-browser",
+  "lib": {
+    "entryFile": "src/public-api.ts",
+    "umdModuleIds": {
+      "@myrmidon/epicod-core": "@myrmidon/epicod-core",
+      "@myrmidon/epicod-text": "@myrmidon/epicod-text",
+      "@myrmidon/epicod-tree": "@myrmidon/epicod-tree"
+    }
+  }
+}

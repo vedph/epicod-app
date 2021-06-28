@@ -65,7 +65,7 @@ export class EpicodApiService {
 
   public getNode(id: number, propFilters?: string): Observable<TextNode> {
     return this._http
-      .get<TextNode>(this._env.get('apiUrl') + 'node/' + id)
+      .get<TextNode>(this._env.get('apiUrl') + 'nodes/' + id)
       .pipe(retry(3), catchError(this._error.handleError));
   }
 }

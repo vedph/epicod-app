@@ -1,0 +1,12 @@
+<mat-card>
+  <mat-card-content
+    gdAreas="tree text"
+    gdAreas.lt-md="tree | text"
+    gdColumns="1fr 1fr"
+    gdColumns.lt-md="1fr"
+    gdGap="8px"
+  >
+    <epicod-tree gdArea="tree" (nodePick)="onNodePick($event)"></epicod-tree>
+    <epicod-text gdArea="text" [node]="node"></epicod-text>
+  </mat-card-content>
+</mat-card>
