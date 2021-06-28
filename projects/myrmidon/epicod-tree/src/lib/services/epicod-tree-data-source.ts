@@ -5,7 +5,7 @@ import { FlatTreeControl } from '@angular/cdk/tree';
 import { CollectionViewer, SelectionChange } from '@angular/cdk/collections';
 
 import { TextNode } from '@myrmidon/epicod-core';
-import { EpicodApiService } from '@myrmidon/epicod-api';
+import { DataPage, EpicodApiService } from '@myrmidon/epicod-api';
 
 /**
  * Node viewmodel used in EpicodTreeDataSource.
@@ -56,7 +56,7 @@ export class EpicodTreeDataSource {
       y: -1,
       x: 1,
       name: 'CORPORA',
-      isExpandable: true
+      isExpandable: true,
     };
   }
 
@@ -73,15 +73,24 @@ export class EpicodTreeDataSource {
   private expandOrCollapse(
     node: NodeViewModel,
     children: NodeViewModel[],
-    expand: boolean
+    expand: boolean,
+    page?: DataPage<TextNode>
   ): void {
-    // TODO add controller nodes for paging
+    if (page) {
+      // TODO head pager
+    }
+
     const index = this.data.indexOf(node);
     if (expand) {
       this.data.splice(index + 1, 0, ...children);
     } else {
       this.data.splice(index + 1, children.length);
     }
+
+    if (page) {
+      // TODO tail pager
+    }
+
     // notify changes
     this.data$.next(this.data);
     node.loading = false;
@@ -113,7 +122,7 @@ export class EpicodTreeDataSource {
                 y: 0,
                 x: i + 1,
                 name: s,
-                isExpandable: true
+                isExpandable: true,
               };
             });
             // nothing to do if it has no children
@@ -141,7 +150,7 @@ export class EpicodTreeDataSource {
         pageNumber: 1,
         pageSize: this.pageSize,
         parentId: node.id,
-        corpusId: node.corpus
+        corpusId: node.corpus,
       })
       .pipe(take(1))
       .subscribe(
@@ -160,7 +169,8 @@ export class EpicodTreeDataSource {
                 level: n.y + 2,
               };
             }),
-            expand
+            expand,
+            page
           );
         },
         (error) => {
