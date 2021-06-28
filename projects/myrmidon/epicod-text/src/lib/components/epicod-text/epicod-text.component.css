@@ -1,6 +1,7 @@
 fieldset {
   border: 1px solid silver;
+  border-radius: 6px;
 }
 table {
-  margin-top: 8px;
+  margin-top: 16px;
 }
