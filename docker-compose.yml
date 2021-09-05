@@ -10,8 +10,8 @@ services:
       - POSTGRES_DB=postgres
     ports:
       - 5432:5432
-    networks:
-      - epicod-network
+    volumes:
+      - /var/db/pgsql:/var/lib/postgresql/data
 
   epicod-api:
     image: vedph2020/epicod-api:1.0.0
@@ -24,7 +24,8 @@ services:
       # for Windows use : as separator, for non Windows use __
       # (see https://github.com/aspnet/Configuration/issues/469)
       - CONNECTIONSTRINGS__DEFAULT=User ID=postgres;Password=postgres;Host=epicod-pgsql;Port=5432;Database={0};
-      - SEEDDELAY=30
+      - DATABASENAME=epicod
+      - SEEDDELAY=50
       - STOCKUSERS__0__PASSWORD=P4ss-W0rd!
       - MESSAGING__APIROOTURL=https://epicod.azurewebsites.net/api/
       - MESSAGING__APPROOTURL=https://fusisoft.it/apps/blob/
@@ -40,9 +41,3 @@ services:
       - 4200:80
     depends_on:
       - epicod-api
-    networks:
-      - epicod-network
-
-networks:
-  epicod-network:
-    driver: bridge
